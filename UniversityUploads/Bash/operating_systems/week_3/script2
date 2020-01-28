@@ -1,0 +1,25 @@
+#!/bin/bash
+arg1=$1
+arg2=$2
+
+for files in $arg1/*
+do
+size=$(wc -c <"$files")
+	
+	case $arg2 in
+	odd)
+		if (( $size % 2 ))
+		then
+			num=$((num+$size))
+		fi
+	;;
+	even)
+		if (( $size % 2 == 0))
+		then
+			num=$((num+$size))
+		fi
+	;;
+	esac
+done		
+
+echo $num
