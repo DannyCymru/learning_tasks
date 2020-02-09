@@ -1,0 +1,55 @@
+#!/bin/bash
+
+arg1=$1
+arg2=$2
+arg3=$3
+
+a1=$(awk "NR==1" $arg2)
+a2=$(awk "NR==2" $arg2)
+a3=$(awk "NR==3" $arg2)
+
+q1=$(awk "NR==1" $arg1)
+q2=$(awk "NR==2" $arg1)
+q3=$(awk "NR==3" $arg1)
+
+cor_ans=0
+incor_ans=0
+
+number_of_lines='wc -1 $arg1'
+
+#Checks if less than three arguments have been passed to the file
+if [ "$#" -ne 2 ]
+then
+	echo 
+
+else
+		
+	read -p "$q1 " user_ans
+		
+	if [ "$user_ans" = "Danny" ]
+	then
+		let "cor_ans=cor_ans+1"
+	else
+		let "incor_ans=incor_ans+1"	
+	fi
+	
+	read -p "$q2 " user_ans
+	
+	if [ "$user_ans" = "Wales" ]
+	then
+		let "cor_ans=cor_ans+1"
+	else
+		let "incor_ans=incor_ans+1"
+	fi
+
+	read -p "$q3 " user_ans
+
+	if [ "$user_ans" = "Peter" ]
+	then
+		let "cor_ans=cor_ans+1"
+	else
+		let "incor_ans=incor_ans+1"
+	fi
+	
+	echo "correct answers:$cor_ans Incorrect answers:$incor_ans"
+fi
