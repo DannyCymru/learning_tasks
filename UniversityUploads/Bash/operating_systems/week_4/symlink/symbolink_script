@@ -4,7 +4,6 @@ arg1=$1
 
 for links in $arg1/*
 do
-	//Checks if there is a symlink then checks if its valid by checking if it goes to an existing file
 	if [ -L $links ] && [ ! -e $links ] 
 	then
 		unlink $links
