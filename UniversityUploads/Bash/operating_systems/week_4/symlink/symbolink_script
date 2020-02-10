@@ -8,7 +8,5 @@ do
 	if [ -L $links ] && [ ! -e $links ] 
 	then
 		unlink $links
-	else 
-		echo "its fine"
 	fi
 done
