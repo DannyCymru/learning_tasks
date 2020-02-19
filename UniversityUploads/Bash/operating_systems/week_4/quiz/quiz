@@ -33,7 +33,7 @@ then
 			let "incor_ans=$incor_ans+1"
 		fi	
 	done
-	
+	echo $cor_ans	
 else
 	for i in {1..10}
 	do
@@ -48,6 +48,6 @@ else
 				let "incor_ans=$incor_ans+1"
 			fi
 		done
+		echo $cor_ans
+		echo $incor_ans
 fi
-
-echo "correct answers:$cor_ans Incorrect answers:$incor_ans"
