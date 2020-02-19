@@ -2,6 +2,7 @@
 
 arg1=$1
 arg2=$2
+arg3=$3
 
 awkq () {
 question=$(awk "NR==$i" $arg1)
@@ -11,26 +12,42 @@ awka () {
 answer=$(awk "NR==$i" $arg2)
 }
 
+awka2 () {
+answer2=$(awk "NR==$i" $arg3)
+}
+
 cor_ans=0
 incor_ans=0
 
 #Checks if less than three arguments have been passed to the file
 if [ "$#" -ne 2 ]
 then
-
+	for i in {1..10}
+	do
+		awka
+		awka2
+		if [ "$answer2" == "$answer" ]
+		then
+			let "cor_ans=$cor_ans+1"
+		else
+			let "incor_ans=$incor_ans+1"
+		fi	
+	done
+	
 else
 	for i in {1..10}
 	do
-	awkq
-	echo $question
-	awka
-	read -e u_i
-	if [ "$u_i" == "$answer" ]
-	then
-		let "cor_ans=$cor_ans+1"
-	else
-		let "incor_ans=$incor_ans+1"
-	fi
-	done
-	echo "correct answers:$cor_ans Incorrect answers:$incor_ans"
+		awkq
+		echo $question
+		awka
+		read -e u_i
+		if [ "$u_i" == "$answer" ]
+			then
+				let "cor_ans=$cor_ans+1"
+			else
+				let "incor_ans=$incor_ans+1"
+			fi
+		done
 fi
+
+echo "correct answers:$cor_ans Incorrect answers:$incor_ans"
