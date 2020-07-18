@@ -3,3 +3,11 @@
 *.exe
 *.out
 *.app
+
+#Rust
+debug/
+target/
+
+Cargo.lock
+
+**/*.rs.bk
