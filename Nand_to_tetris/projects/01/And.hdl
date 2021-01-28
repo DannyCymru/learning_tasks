@@ -15,4 +15,21 @@ CHIP And {
 
     PARTS:
     // Put your code here:
+    /* Quick notes before the readme. 
+    	Currently I only have the Nand structure, which means Not AND. So it's almost the exact opposite of the and gate. 
+    	In a Nand gate 1 and 1 = 0
+    	0 and 1 = 1
+    	So in this design with only Nand Gates we can create a simple comparison with two simple internal pins. The idea behind this is that we are simply reversing the Nand logic onto it self.
+
+    	So when we Nand compare the two internal pins, the output will be the exact opposite of those internal. So if 0 and 1 = 1 in aout then by the time outputs to the output pin, it will reverse it as 0.
+    	If 1 and 1 = 0 in this case then out will be reversed to a 1.
+
+    	If we had higher level functions the second output would be unnecessary, however if we attempt to simply use the input pins a or b with aout we will not have the necessary results to appropriately compare.
+    */
+    //1 And 1 = 0
+    Nand(a=a, b=b, out=aout);
+    //1 And 1 = 0
+    Nand(a=a,b=b, out=bout);
+    //1 And 1 = 1
+    Nand(a=aout, b=bout, out=out);
 }
