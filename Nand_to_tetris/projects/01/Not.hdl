@@ -14,4 +14,11 @@ CHIP Not {
 
     PARTS:
     // Put your code here:
+    /*With only And gates we now need to make it so that if in is 1 out = 0
+
+    so 1 = 0
+       0 = 1
+    A nand gate does this automatically, you just need to compare in the input pin to itself so that it knows it should be reversed.*/
+    Nand(a=in, b=in, out=out);
+
 }
