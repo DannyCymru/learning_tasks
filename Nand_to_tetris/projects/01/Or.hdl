@@ -12,7 +12,13 @@
 CHIP Or {
     IN a, b;
     OUT out;
-
-    PARTS:
-    // Put your code here:
+	
+	/* Now that we have implemented the Not gate we can create a OR gate. First we reverse the input value of the initial pins. With those results we can then make sure that if the resulting comparison with Nand is different, we get the correct output
+    0=1 */
+    Not (in=a,  out=aout);
+    //0=1
+    Not (in=b, out=bout);
+    /*1 And 1 = 0
+      1 And 0 = 1 */
+    Nand (a=aout, b=bout, out=out);
 }
